@@ -1,0 +1,23 @@
+<!-- # templates/projects.html -->
+{% extends "layout.html" %}
+{% block content %}
+<h2>My Projects</h2>
+<div class="row mt-4">
+    {% for project in projects %}
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.name }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <div class="mb-3">
+                    {% for tech in project.technologies %}
+                    <span class="badge bg-secondary me-1">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                <a href="{{ project.github }}" class="btn btn-primary" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
